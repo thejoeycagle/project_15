@@ -1,6 +1,15 @@
 import { SynthFlowConfig, SynthFlowResponse, CallRequest, CallResponse } from '../types/synthflow';
 
 class SynthFlowService {
+  private config: SynthFlowConfig | null = null; // Placeholder for future use
+
+  constructor(config?: SynthFlowConfig) {
+    if (config) {
+      this.config = config;
+      console.log('SynthFlow configuration set:', config);
+    }
+  }
+
   async initiateCall(request: CallRequest): Promise<CallResponse> {
     try {
       console.log('Initiating call with request:', request);
