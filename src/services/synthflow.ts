@@ -1,13 +1,11 @@
 import { SynthFlowConfig, SynthFlowResponse, CallRequest, CallResponse } from '../types/synthflow';
 
 class SynthFlowService {
-  private config: SynthFlowConfig | null = null; // Placeholder for future use
+  private config: SynthFlowConfig;
 
-  constructor(config?: SynthFlowConfig) {
-    if (config) {
-      this.config = config;
-      console.log('SynthFlow configuration set:', config);
-    }
+  constructor(config: SynthFlowConfig) {
+    this.config = config;
+    console.log('SynthFlow configuration:', config); // Log the config for now
   }
 
   async initiateCall(request: CallRequest): Promise<CallResponse> {
@@ -114,4 +112,6 @@ class SynthFlowService {
   }
 }
 
-export const synthFlow = new SynthFlowService();
+// Example configuration object to pass when initializing SynthFlowService
+const config: SynthFlowConfig = { /* configure your options here */ };
+export const synthFlow = new SynthFlowService(config);
